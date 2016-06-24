@@ -10,7 +10,7 @@
   "main": "main.js",
   "dependencies": {
     "cheerio": "latest",
-    "minimist": "latest"
+    "minimist": "latest",
   },
   "license": "MIT"
 }
