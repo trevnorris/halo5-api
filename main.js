@@ -15,3 +15,9 @@ Object.assign(module.exports, require('./lib/arena-service-record'));
 
 // Retrieve Warzone Service Record for a list of Spartans.
 Object.assign(module.exports, require('./lib/warzone-service-record'));
+
+// Retrieve Matches for given Spartan.
+Object.assign(module.exports, require('./lib/player-matches'));
+
+// Retrieve post game carnage information.
+Object.assign(module.exports, require('./lib/postgame'));

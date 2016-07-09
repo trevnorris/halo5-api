@@ -1,5 +1,43 @@
 'use strict';
 
+const api = require('../main');
+
+
+api.getSpartanMatches('sudsed', 'warzone', 2, 5, (err, sdata) => {
+  api.getSpartanMatches('PainedZeddicus', 'warzone', 0, 5, (err, pdata) => {
+    processData(sdata.Results, pdata.Results);
+  });
+});
+
+
+function processData(suds, zedd) {
+  for (var i = 0; i < suds.length; i++) {
+    console.log(suds[i].Id.MatchId === zedd[i].Id.MatchId, suds[i].Id.MatchId);
+  }
+  //for (let i of suds)
+    //console.log('suds:', i.Id.MatchId);
+  //for (let i of zedd)
+    //console.log('zedd:', i.Id.MatchId);
+}
+
+
+/*
+api.getArenaRecords(['sudsed', 'PainedZeddicus'], (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+*/
+
+/*
+api.getSpartanMatches('sudsed', 'warzone,arena', (err, data) => {
+  if (err) throw err;
+
+  console.log(data.Results);
+});
+*/
+
+
+/*
 const getMembers = require('./lib/members').getMembers;
 const getWarzoneRecord =
     require('./lib/warzone-service-record').getWarzoneRecord;
@@ -35,15 +73,12 @@ const print = process._rawDebug;
   }
   print('sum:', sum);
 }());
-/* */
 
 
-/*
 getMembers('noble reclaimer', (err, data) => {
   if (err) throw err;
   getWarzoneRecord(data, memberWarzoneRecords);
 });
-/* */
 
 
 function memberWarzoneRecords(err, records) {
@@ -53,3 +88,4 @@ function memberWarzoneRecords(err, records) {
   require('fs').writeFileSync('/tmp/spartan-records.json', json);
   print(`wrote ${Buffer.byteLength(json)} to disk`);
 }
+*/
