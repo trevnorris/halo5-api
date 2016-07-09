@@ -1,6 +1,6 @@
 {
   "name": "halo5-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "engines": { "node": ">=4.0.0" },
   "description": "Query Halo 5 stats about spartans and companies",
   "author": "Trevor Norris <trev.norris@gmail.com>",
