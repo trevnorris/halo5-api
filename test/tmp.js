@@ -4,7 +4,9 @@ const api = require('../main');
 
 
 api.getSpartanMatches('sudsed', 'warzone', 2, 5, (err, sdata) => {
+  if (err) throw err;
   api.getSpartanMatches('PainedZeddicus', 'warzone', 0, 5, (err, pdata) => {
+    if (err) throw err;
     processData(sdata.Results, pdata.Results);
   });
 });
