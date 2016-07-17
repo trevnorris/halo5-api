@@ -12,5 +12,9 @@
     "cheerio": "latest",
     "minimist": "latest"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/jstat/jstat.git"
+  }
 }

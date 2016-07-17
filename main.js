@@ -21,3 +21,10 @@ Object.assign(module.exports, require('./lib/player-matches'));
 
 // Retrieve post game carnage information.
 Object.assign(module.exports, require('./lib/postgame'));
+
+// Retrieve Events for Match.
+Object.assign(module.exports, require('./lib/match-events'));
+
+// Expose simple utilities to make life easier. Doing it this way to prevent
+// users from being able to override the same methods used internally.
+Object.assign((module.exports.util = {}), require('./lib/util'));
