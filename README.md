@@ -1,10 +1,20 @@
 ## Halo 5 Stats API
 
-Environment Variables:
+**Environment Variables:**
 
 * `HALO5_DEV_KEY`: The 32 character Halo 5 developer key to perform queries.
 * `HALO5_QUERY_DELAY`: Number of milliseconds to wait between queries. Default
   is 1200ms.
+
+**Developer Key:**
+
+An included emtpy file `developer_key` is where you can store the development
+key so as to not require always having it passed in as an environment variable.
+To make sure your key does not accidentally get committed, please do the
+following to prevent git from tracking any changes:
+```
+$ git update-index --assume-unchanged developer_key
+```
 
 ### API:
 

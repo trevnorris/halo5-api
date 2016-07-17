@@ -27,3 +27,6 @@ pids
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Ignore development key
+developer_key
