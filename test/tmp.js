@@ -3,6 +3,14 @@
 const api = require('../main');
 
 
+api.getCustomRecords('sudsed', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
+
+
+/*
 api.getSpartanMatches('sudsed', 'warzone', 2, 5, (err, sdata) => {
   if (err) throw err;
   api.getSpartanMatches('PainedZeddicus', 'warzone', 0, 5, (err, pdata) => {
@@ -21,6 +29,7 @@ function processData(suds, zedd) {
   //for (let i of zedd)
     //console.log('zedd:', i.Id.MatchId);
 }
+*/
 
 
 /*
