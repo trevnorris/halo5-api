@@ -1,12 +1,25 @@
 'use strict';
 
 const api = require('../main');
+const print = process._rawDebug;
 
 
-api.getCustomRecords('sudsed', (err, data) => {
+var d = Date.now();
+api.getMembers('noble reclaimer', (err, members) => {
   if (err) throw err;
-  console.log(data);
+  api.getWarzoneServiceRecords(members, (err, records) => {
+    if (err) throw err;
+    d = Date.now() - d;
+    print(Buffer(JSON.stringify(records)).length);
+    print(d);
+  });
 });
+
+
+//api.getCustomServiceRecords('sudsed', (err, data) => {
+  //if (err) throw err;
+  //console.log(data);
+//});
 
 
 
@@ -33,7 +46,7 @@ function processData(suds, zedd) {
 
 
 /*
-api.getArenaRecords(['sudsed', 'PainedZeddicus'], (err, data) => {
+api.getArenaServiceRecords(['sudsed', 'PainedZeddicus'], (err, data) => {
   if (err) throw err;
   console.log(data);
 });
