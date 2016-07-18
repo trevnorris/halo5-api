@@ -4,6 +4,15 @@ const api = require('../main');
 const print = process._rawDebug;
 
 
+api.getEmblemImage('sudsed', (err, url) => {
+  print('emblem', url);
+});
+
+api.getSpartanImage('sudsed', (err, url) => {
+  print('spartan', url);
+});
+
+/*
 var d = Date.now();
 api.getMembers('noble reclaimer', (err, members) => {
   if (err) throw err;
@@ -14,6 +23,7 @@ api.getMembers('noble reclaimer', (err, members) => {
     print(d);
   });
 });
+*/
 
 
 //api.getCustomServiceRecords('sudsed', (err, data) => {

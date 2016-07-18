@@ -28,3 +28,6 @@ Object.assign(module.exports, require('./lib/match-events'));
 // Expose simple utilities to make life easier. Doing it this way to prevent
 // users from being able to override the same methods used internally.
 Object.assign((module.exports.util = {}), require('./lib/util'));
+
+// Retrieve the emblem and spartan image urls
+Object.assign(module.exports, require('./lib/spartan-profile'));
