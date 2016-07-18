@@ -11,10 +11,10 @@ Object.assign(module.exports, require('./lib/members'));
 Object.assign(module.exports, require('./lib/metadata'));
 
 // Retrieve Arena Service Record for a list of Spartans.
-Object.assign(module.exports, require('./lib/arena-service-record'));
+Object.assign(module.exports, require('./lib/service-records-arena'));
 
 // Retrieve Warzone Service Record for a list of Spartans.
-Object.assign(module.exports, require('./lib/warzone-service-record'));
+Object.assign(module.exports, require('./lib/service-records-general'));
 
 // Retrieve Matches for given Spartan.
 Object.assign(module.exports, require('./lib/player-matches'));
