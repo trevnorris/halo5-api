@@ -29,6 +29,7 @@ at runtime by adding it to `process.env`.
   before the callback is called with the error. This value can be overridden
   using this environment variable.
 
+
 ### API:
 
 #### `getCompanyCommendations(company, callback)`
@@ -45,49 +46,99 @@ Retrieve all commendations for given `company`.
 
 Retrieve all members for given `company`.
 
-#### `getArenaRecords(members[, season[, key]], callback)`
+#### `getArenaServiceRecords(members[, season], callback)`
 
 * `members` {String} or {Array}
 * `season` {String}
-* `key` {String}
 * `callback` {Function}
 
 Retrieve service record for given spartan or spartans. If `season` is omitted
 then default is the current season.
 
-#### `getWarzoneRecords(members[, season[, key]], callback)`
+#### `getWarzoneServiceRecords(members, callback)`
+#### `getCustomServiceRecords(members, callback)`
+#### `getCampaignServiceRecords(members, callback)`
 
 * `members` {String} or {Array}
 * `season` {String}
-* `key` {String}
 * `callback` {Function}
 
-Retrieve service record for given spartan or spartans. If `season` is omitted
-then default is the current season.
+Retrieve service record for given spartan or spartans.
 
-#### `getArenaPostGame(matchId[, key], callback)`
+#### `getArenaPostGame(matchId, callback)`
+#### `getWarzonePostGame(matchId, callback)`
+#### `getCustomPostGame(matchId, callback)`
+#### `getCampaignPostGame(matchId, callback)`
 
 * `matchId` {String}
-* `key` {String}
 * `callback` {Function}
 
-Retrieve post game service record for given `matchId`.
+Retrieve post game record for given `matchId`.
 
-#### `getWarzonePostGame(matchId[, key], callback)`
+
+#### `getEventsForMatch(matchId, callback)`
+#### `getEventsForMatchRaw(matchId, callback)`
 
 * `matchId` {String}
-* `key` {String}
 * `callback` {Function}
 
-Retrieve post game service record for given `matchId`.
+Retrieve match events for given `matchId`. The `Raw` variant returns the
+`Buffer` instead of parsing the JSON. Because these are so large and they may
+just need to be written directly to disk.
 
-#### `metadata.campaign()`
-#### `metadata.commendations()`
-#### `metadata.csr_designations()`
-#### `metadata.enemies()`
-#### `metadata.medals()`
-#### `metadata.seasons()`
-#### `metadata.vehicles()`
-#### `metadata.weapons()`
 
-Retrieve metadata.
+#### `getEmblemImage(spartan[, size], callback)`
+
+* `spartan` {String}
+* `size` {Number} Default 256
+* `callback` {Function}
+
+Retrieve the url for a Spartan's emblem. While API call may be throttled, the
+image URL is hosted on a CDN and is not.
+
+
+#### `getSpartanImage(spartan[, size[, crop]], callback)`
+
+* `spartan` {String}
+* `size` {Number} Default 256
+* `crop` {String} Default 'full'
+* `callback` {Function}
+
+Retrieve a Spartan's picture. `crop` must be either `full` or `portrait`. While
+the API call may be throttled, the image URL returned is hosted on a CDN and
+is not.
+
+
+#### `getPlayerLeaderboard(seasonId, playlistId[, count], callback)`
+
+* `seasonId` {String}
+* `playlistId` {String}
+* `count` {Numer} Default 200
+* `callback` {Function}
+
+Retrieves the player leaderboard. The leaderboard consists of the top players
+for a playlist in a season.
+
+
+#### `metadata.getCampaignMissions(callback)`
+#### `metadata.getCommendations(callback)`
+#### `metadata.getCsrDesignations(callback)`
+#### `metadata.getEnemies(callback)`
+#### `metadata.getFlexibleStats(callback)`
+#### `metadata.getGameBaseVariants(callback)`
+#### `metadata.getImpulses(callback)`
+#### `metadata.getMaps(callback)`
+#### `metadata.getMedals(callback)`
+#### `metadata.getPlaylists(callback)`
+#### `metadata.getSeasons(callback)`
+#### `metadata.getSkulls(callback)`
+#### `metadata.getSpartanRanks(callback)`
+#### `metadata.getTeamColors(callback)`
+#### `metadata.getVehicles(callback)`
+#### `metadata.getWeapons(callback)`
+#### `metadata.getGameVariants(id, callback)`
+#### `metadata.getMapVariants(id, callback)`
+#### `metadata.getRequisitionPacks(id, callback)`
+#### `metadata.getRequisitions(id, callback)`
+
+All the calls are pretty much the same, except a few that require an `id`.
