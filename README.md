@@ -21,6 +21,10 @@ at the same time those keys can be leveraged by the group.
 * `HALO5_DEV_KEY`: The 32 character Halo 5 developer key to perform queries.
 * `HALO5_QUERY_DELAY`: Number of milliseconds to wait between queries. Default
   is 1200ms.
+* `HALO5_429_RETRIES`: When an HTTP status code of `429` is found the API will
+  automatically retry after a short delay. The default number of retries is 3
+  before the callback is called with the error. This value can be overridden
+  using this environment variable.
 
 ### API:
 
