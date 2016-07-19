@@ -60,7 +60,6 @@ then default is the current season.
 #### `getCampaignServiceRecords(members, callback)`
 
 * `members` {String} or {Array}
-* `season` {String}
 * `callback` {Function}
 
 Retrieve service record for given spartan or spartans.
