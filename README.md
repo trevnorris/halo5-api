@@ -18,6 +18,9 @@ at the same time those keys can be leveraged by the group.
 
 **Environment Variables:**
 
+The environment variable is set for every API request, so a key can be added
+at runtime by adding it to `process.env`.
+
 * `HALO5_DEV_KEY`: The 32 character Halo 5 developer key to perform queries.
 * `HALO5_QUERY_DELAY`: Number of milliseconds to wait between queries. Default
   is 1200ms.

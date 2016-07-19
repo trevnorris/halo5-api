@@ -3,7 +3,27 @@
 const api = require('../main');
 const print = process._rawDebug;
 
+const members =
+    [ 'OCD Pirate', 'Xbxmstr07', 'Beelze B00TY', 'Bakemak3r', 'RelyksP',
+      'JBDash4', 'Dr Doozies', 'Psycho Punk 01', 'NicochOMG117', 'High x Time',
+      'CommanderHawks0', 'dark souls0129', 'StealthSquare46', 'MaxDeadman117',
+      'WHYAMIGINGER179', 'AlpineFalcon76', 'idontreallyexist' ];
 
+api.getWarzoneServiceRecords(members, (err, data) => {
+  print(err.res.statusCode);
+  if (err) throw err;
+  print(data);
+});
+
+
+//api.getCompanyCommendations('noble reclaimer', (err, data) => {
+  //if (err) throw err;
+
+  //console.log(data);
+//});
+
+
+/*
 api.getEmblemImage('sudsed', (err, url) => {
   print('emblem', url);
 });
@@ -11,6 +31,7 @@ api.getEmblemImage('sudsed', (err, url) => {
 api.getSpartanImage('sudsed', (err, url) => {
   print('spartan', url);
 });
+*/
 
 /*
 var d = Date.now();

@@ -3,8 +3,8 @@
 const api = require('../main');
 const assert = require('assert');
 const print = process._rawDebug;
-var run_counter_error = 0;
-var run_counter_ok = 0;
+let run_counter_error = 0;
+let run_counter_ok = 0;
 
 
 const members =
@@ -15,16 +15,18 @@ const members =
 
 
 // First make sure we properly receive errors
-api.getWarzoneRecords(members, (err, data) => {
+api.getWarzoneServiceRecords(members, (err, data) => {
   run_counter_error++;
   assert.ok(err, 'no error was received');
+  assert.equal(err.res.statusCode, 400);
   setImmediate(getRecords);
 });
 
 
 function getRecords() {
   members.pop();
-  api.getWarzoneRecords(members, (err, data) => {
+
+  api.getWarzoneServiceRecords(members, (err, data) => {
     if (err) throw err;
     run_counter_ok++;
 
