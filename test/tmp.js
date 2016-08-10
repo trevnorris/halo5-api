@@ -1,18 +1,23 @@
 'use strict';
 
+const fs = require('fs');
 const api = require('../main');
 const print = process._rawDebug;
 
-const members =
-    [ 'OCD Pirate', 'Xbxmstr07', 'Beelze B00TY', 'Bakemak3r', 'RelyksP',
-      'JBDash4', 'Dr Doozies', 'Psycho Punk 01', 'NicochOMG117', 'High x Time',
-      'CommanderHawks0', 'dark souls0129', 'StealthSquare46', 'MaxDeadman117',
-      'WHYAMIGINGER179', 'AlpineFalcon76', 'idontreallyexist' ];
 
-api.getWarzoneServiceRecords(members, (err, data) => {
-  print(err.res.statusCode);
+var t = Date.now();
+api.getMembers('noble reclaimer', (err, data) => {
   if (err) throw err;
-  print(data);
+  print('getMembers complete:', data.length);
+  api.getWarzoneServiceRecords(data, (err, data) => {
+    if (err) throw err;
+    print('getWarzoneServiceRecords complete');
+    fs.writeFileSync(__dirname + '/files/noble_reclaimer_warzone_service_records.json',
+                     JSON.stringify(data));
+    print('file written to disk');
+    t = Date.now() - t;
+    print('Took', (t / 1e3).toFixed(1),'sec');
+  });
 });
 
 
